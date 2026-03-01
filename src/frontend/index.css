@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Veloria Design System - Premium Fashion Brand */
+/* Playfair Display for headings, Inter for body - loaded via @import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Veloria OKLCH Color Palette - Warm Cream / Blush Pink / Rich Charcoal */
+    --radius: 0.5rem;
+
+    /* Backgrounds */
+    --background: 0.98 0.005 60;         /* warm cream white */
+    --foreground: 0.15 0.01 30;          /* rich charcoal black */
+
+    /* Cards */
+    --card: 1 0 0;                       /* pure white */
+    --card-foreground: 0.15 0.01 30;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.01 30;
+
+    /* Primary - deep charcoal */
+    --primary: 0.18 0.01 30;
+    --primary-foreground: 0.98 0.005 60;
+
+    /* Secondary - warm beige */
+    --secondary: 0.94 0.02 60;
+    --secondary-foreground: 0.25 0.02 30;
+
+    /* Muted */
+    --muted: 0.95 0.01 60;
+    --muted-foreground: 0.55 0.01 30;
+
+    /* Accent - blush rose */
+    --accent: 0.87 0.04 15;
+    --accent-foreground: 0.15 0.01 30;
+
+    /* Brand Rose - primary action color */
+    --brand: 0.62 0.18 10;               /* deep rose */
+    --brand-light: 0.88 0.06 10;         /* light blush */
+    --brand-dark: 0.42 0.15 10;          /* deep wine */
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders & inputs */
+    --border: 0.88 0.02 60;
+    --input: 0.90 0.015 60;
+    --ring: 0.62 0.18 10;
+
+    /* Charts */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.01 60;
+    --sidebar-foreground: 0.15 0.01 30;
+    --sidebar-primary: 0.18 0.01 30;
+    --sidebar-primary-foreground: 0.98 0.005 60;
+    --sidebar-accent: 0.94 0.02 60;
+    --sidebar-accent-foreground: 0.25 0.02 30;
+    --sidebar-border: 0.88 0.02 60;
+    --sidebar-ring: 0.62 0.18 10;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Veloria brand utilities */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .text-brand {
+    color: oklch(var(--brand));
+  }
+
+  .bg-brand {
+    background-color: oklch(var(--brand));
+  }
+
+  .bg-brand-light {
+    background-color: oklch(var(--brand-light));
+  }
+
+  .border-brand {
+    border-color: oklch(var(--brand));
+  }
+
+  /* Veloria card hover */
+  .product-card-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .product-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px oklch(0.15 0.01 30 / 0.15);
+  }
+
+  /* Veloria button */
+  .btn-veloria {
+    background-color: oklch(var(--brand));
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-veloria:hover {
+    background-color: oklch(var(--brand-dark));
+    box-shadow: 0 4px 12px oklch(var(--brand) / 0.3);
+  }
+
+  .btn-veloria:active {
+    transform: scale(0.98);
+  }
+
+  /* Line clamp */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Scrollbar hide */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Grain texture overlay */
+  .noise-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Veloria badge */
+  .badge-new {
+    background-color: oklch(var(--brand));
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0;
+  }
+
+  .badge-discount {
+    background-color: oklch(0.15 0.01 30);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0;
+  }
+}
+
+/* Veloria custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease both;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* Skeleton shimmer */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, oklch(0.93 0.01 60) 25%, oklch(0.96 0.01 60) 50%, oklch(0.93 0.01 60) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
