@@ -5,10 +5,6 @@ import { SiPinterest, SiX } from "react-icons/si";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const hostname =
-    typeof window !== "undefined"
-      ? encodeURIComponent(window.location.hostname)
-      : "";
 
   return (
     <footer className="bg-foreground text-white mt-20">
@@ -145,17 +141,6 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs font-body text-white/40">
             © {year} VELORIA. All rights reserved.
-          </p>
-          <p className="text-xs font-body text-white/40">
-            Built with <span className="text-brand">♥</span> using{" "}
-            <a
-              href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${hostname}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white/70 transition-colors"
-            >
-              caffeine.ai
-            </a>
           </p>
         </div>
       </div>
